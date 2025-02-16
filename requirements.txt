@@ -1,0 +1,10 @@
+build==1.2.2.post1
+ImageHash==4.3.2
+numpy==2.2.3
+packaging==24.2
+pillow==11.1.0
+-e git+https://github.com/mehrdad-anvari/PreLableClean.git@1a8e21f8d8438f8213c6966f8e5c35b6766fdf1f#egg=prelabelclean
+pyproject_hooks==1.2.0
+PyWavelets==1.8.0
+scipy==1.15.1
+tomli==2.2.1

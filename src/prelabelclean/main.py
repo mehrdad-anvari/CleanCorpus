@@ -1,3 +1,4 @@
+import sys
 import argparse
 import importlib
 from . import utils
@@ -25,7 +26,11 @@ def cli():
     # Read input files (from stdin or command line)
     image_paths = utils.read_input()
 
-    filtered_images = apply_filter(image_paths, args.action, args.filter, threshold=args.threshold, hash_size=args.hash_size)
+    match args.filter:
+        case "similar":
+            filtered_images = apply_filter(image_paths, args.action, args.filter, hash_size=args.hash_size)
+        case _ :
+            print(f"Filter {args.filter} is NOT implemented!", file=sys.stderr)
 
     for path in filtered_images:
         print(path)

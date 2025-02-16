@@ -17,7 +17,7 @@ def cli():
     parser = argparse.ArgumentParser(description="PreLabelClean - Clean and preprocess datasets using UNIX pipes.")
     
     parser.add_argument("action", choices=["include", "exclude"], help="Include or exclude specific images")
-    parser.add_argument("filter", help="Filter type (e.g., 'similar', 'gray')")
+    parser.add_argument("filter", help="Filter type (e.g., 'similar', 'redundant')")
     parser.add_argument("--threshold", type=int, default=0, help="Threshold for mostly gray images (only for 'gray' filter)")
     parser.add_argument("--hash_size", type=int, default=8, help="Hash size for duplicate detection (only for 'similar' filter)")
 
@@ -28,6 +28,8 @@ def cli():
 
     match args.filter:
         case "similar":
+            filtered_images = apply_filter(image_paths, args.action, args.filter, hash_size=args.hash_size)
+        case "redundant":
             filtered_images = apply_filter(image_paths, args.action, args.filter, hash_size=args.hash_size)
         case _ :
             print(f"Filter {args.filter} is NOT implemented!", file=sys.stderr)

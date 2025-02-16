@@ -14,7 +14,12 @@ def find(image_paths, hash_size=8, exclude=True):
         except Exception as e:
             print(f"Skipping {image_path}: {e}", file=sys.stderr)
 
-    if exclude:
-        return [paths[0] for paths in hashes.values()]  # Keep only unique images
-    else:
-        return [p for paths in hashes.values() if len(paths) > 1 for p in paths]  # Keep only duplicates
+    # Filter paths based on similarity and exclusion logic
+    filtered_paths = []
+    for paths in hashes.values():
+        if len(paths) > 1 and not exclude:  # Include only groups with duplicates when not excluding
+            filtered_paths.extend(paths)
+        elif len(paths) < 2 and exclude:  # Exclude groups with no duplicates when excluding
+            filtered_paths.extend(paths)
+
+    return filtered_paths

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prelabelclean"
+version = "0.1.0"
+description = "A tool to clean and prepare images before labeling."
+authors = [{ name = "Mehrdad Anvari-Frad", email = "mehrdad.anvarifard@gmail.com" }]
+license = { file = "LICENSE" }
+readme = "README.md"
+dependencies = [
+    "Pillow",
+    "imagehash"
+]
+
+[project.scripts]
+prelabelclean = "prelabelclean.main:cli"

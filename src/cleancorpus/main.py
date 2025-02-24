@@ -6,7 +6,7 @@ from . import utils
 def apply_filter(image_paths, action, filter_name, **kwargs):
     """Apply a filter programmatically."""
     try:
-        filter_module = importlib.import_module(f".filters.{filter_name}", package="prelabelclean")
+        filter_module = importlib.import_module(f".filters.{filter_name}", package="cleancorpus")
     except ModuleNotFoundError:
         raise ValueError(f"Unknown filter: {filter_name}")
 
@@ -14,7 +14,7 @@ def apply_filter(image_paths, action, filter_name, **kwargs):
 
 def cli():
     """Command-line entry point."""
-    parser = argparse.ArgumentParser(description="PreLabelClean - Clean and preprocess datasets using UNIX pipes.")
+    parser = argparse.ArgumentParser(description="cleancorpus - Clean and preprocess datasets using UNIX pipes.")
     
     parser.add_argument("action", choices=["include", "exclude"], help="Include or exclude specific images")
     parser.add_argument("filter", help="Filter type (e.g., 'similar', 'redundant', 'shape')")

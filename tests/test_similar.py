@@ -1,5 +1,5 @@
 from pathlib import Path
-from prelabelclean.filters import similar
+from cleancorpus.filters import similar
 
 # Sample test directory setup
 TEST_IMAGE_DIR = Path("tests/test_images/set_1")

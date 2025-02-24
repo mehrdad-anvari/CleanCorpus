@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "prelabelclean"
+name = "cleancorpus"
 version = "0.1.0"
 description = "A tool to clean and prepare images before labeling."
 authors = [{ name = "Mehrdad Anvari-Frad", email = "mehrdad.anvarifard@gmail.com" }]
@@ -15,4 +15,4 @@ dependencies = [
 ]
 
 [project.scripts]
-prelabelclean = "prelabelclean.main:cli"
+cleancorpus = "cleancorpus.main:cli"

@@ -1,5 +1,5 @@
 from pathlib import Path
-from prelabelclean.filters import similar
+from cleancorpus.filters import similar
 from collections import Counter
 
 # Sample test directory setup

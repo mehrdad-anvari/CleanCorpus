@@ -1,6 +1,6 @@
 import pytest
 from PIL import Image
-from prelabelclean.filters.shape import find  # Update this import based on your project structure
+from cleancorpus.filters.shape import find  # Update this import based on your project structure
 
 # Helper function to create a temporary image
 def create_temp_image(width, height, filename):

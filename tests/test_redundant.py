@@ -15,7 +15,7 @@ def test_find_similar_exclude():
     """Test that all redundant images are correctly excluded."""
     image_paths = set(TEST_IMAGE_DIR.glob("*.jpg"))
 
-    filtered_images = set(similar.find(image_paths, hash_size=8, exclude=True))
+    filtered_images = set(similar.find(image_paths, hash_size=8, include=False))
 
     count_filtered_images = Counter([extract_base_name(p) for p in filtered_images])
 
@@ -30,7 +30,7 @@ def test_find_redundant_include():
     """Test that only redundant images remain when using 'include' action."""
     image_paths = set(TEST_IMAGE_DIR.glob("*.jpg"))
 
-    filtered_images = set(similar.find(image_paths, hash_size=8, exclude=False))
+    filtered_images = set(similar.find(image_paths, hash_size=8, include=True))
 
     count_filtered_images = Counter([extract_base_name(p) for p in filtered_images])
 

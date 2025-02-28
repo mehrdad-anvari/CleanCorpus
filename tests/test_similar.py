@@ -17,7 +17,7 @@ def test_find_similar_exclude():
     similar_images = set(TEST_IMAGE_DIR.glob("*_similar.jpg"))
     original_images = set(TEST_IMAGE_DIR.glob("*_original.jpg"))
 
-    filtered_images = set(similar.find(image_paths, hash_size=8, exclude=True))
+    filtered_images = set(similar.find(image_paths, hash_size=8, include=False))
 
     # Extract base names of all non-unique images
     not_unique_bases = {extract_base_name(p) for p in (similar_images | duplicate_images)}
@@ -36,7 +36,7 @@ def test_find_similar_include():
     duplicate_images = set(TEST_IMAGE_DIR.glob("*_duplicate.jpg"))
     similar_images = set(TEST_IMAGE_DIR.glob("*_similar.jpg"))
 
-    filtered_images = set(similar.find(image_paths, hash_size=8, exclude=False))
+    filtered_images = set(similar.find(image_paths, hash_size=8, include=True))
 
     # Extract base names of all non-unique images
     not_unique_bases = {extract_base_name(p) for p in (similar_images | duplicate_images)}

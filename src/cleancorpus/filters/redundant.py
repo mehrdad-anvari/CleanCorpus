@@ -3,7 +3,7 @@ import imagehash
 from PIL import Image
 from collections import defaultdict
 
-def find(image_paths, hash_size=8, exclude=True):
+def find(image_paths, hash_size=8, include=False):
     """Filter redundant images (either keeping or removing them)."""
     hashes = defaultdict(list)
     for image_path in image_paths:
@@ -17,7 +17,7 @@ def find(image_paths, hash_size=8, exclude=True):
     # Filter paths based on similarity and exclusion logic
     filtered_paths = []
     for paths in hashes.values():
-        if exclude:
+        if include:
             # print(paths[0])  
             filtered_paths.append(paths[0])
         elif len(paths) > 1:  

@@ -10,6 +10,7 @@ authors = [{ name = "Mehrdad Anvari-Frad", email = "mehrdad.anvarifard@gmail.com
 license = { file = "LICENSE" }
 readme = "README.md"
 dependencies = [
+    "Click",
     "Pillow",
     "imagehash"
 ]
